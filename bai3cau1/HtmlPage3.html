@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Thay đổi trình duyệt</title>
+</head>
+<body>
+    <h1>Thay đổi trình duyệt</h1>
+
+    <label for="MauNen">Màu nền:</label>
+    <input type="text" id="MauNen" placeholder="Màu nền"><br><br>
+
+    <label for="MauChu">Màu chữ:</label>
+    <input type="text" id="MauChu" placeholder="Màu chữ"><br><br>
+
+    <label for="TieuDe">Tiêu đề:</label>
+    <input type="text" id="TieuDe" placeholder="Tiêu đề"><br><br>
+
+    <label for="TrangThai">Trạng thái:</label>
+    <input type="text" id="TrangThai" placeholder="Trạng thái"><br><br>
+
+    <input type="button" id="ThayDoi" value="Thay đổi">
+
+    <script>
+        document.getElementById("ThayDoi").addEventListener("click", function() {
+            // Lấy giá trị từ các ô textbox
+            var mauNen = document.getElementById("MauNen").value;
+            var mauChu = document.getElementById("MauChu").value;
+            var tieuDe = document.getElementById("TieuDe").value;
+            var trangThai = document.getElementById("TrangThai").value;
+
+            // Thay đổi màu nền và màu chữ của trang
+            document.body.style.backgroundColor = mauNen;
+            document.body.style.color = mauChu;
+
+            // Thay đổi tiêu đề của tài liệu
+            document.title = tieuDe;
+
+            // Thay đổi thanh trạng thái của cửa sổ trình duyệt
+            window.status = trangThai;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Lật Hình</title>
+    <style>
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+            .card img {
+                display: none;
+            }
+    </style>
+</head>
+<body>
+    <h1>Game Lật Hình</h1>
+    <p>Click vào các ô để lật hình.</p>
+
+    <div id="gameBoard">
+        <!-- Thay đổi đường dẫn của hình ảnh tại src để sử dụng hình ảnh của bạn -->
+        <div class="card" onclick="flipCard(this)">
+            <img src="image1.jpg" alt="Hình ảnh 1">
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <img src="image2.jpg" alt="Hình ảnh 2">
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <img src="image3.jpg" alt="Hình ảnh 3">
+        </div>
+        <!-- Thêm thêm các ô và hình ảnh tại đây -->
+    </div>
+
+    <script>
+        var flippedCards = [];
+
+        function flipCard(card) {
+            if (flippedCards.length < 2) {
+                card.querySelector('img').style.display = 'block';
+                flippedCards.push(card);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            var card1 = flippedCards[0];
+            var card2 = flippedCards[1];
+
+            if (card1.querySelector('img').src === card2.querySelector('img').src) {
+                // Nếu hai hình giống nhau, ẩn các hình ảnh và xóa khỏi mảng lật hình
+                card1.querySelector('img').style.display = 'none';
+                card2.querySelector('img').style.display = 'none';
+                flippedCards = [];
+            } else {
+                // Nếu hai hình không giống nhau, đảo lại các hình
+                card1.querySelector('img').style.display = 'none';
+                card2.querySelector('img').style.display = 'none';
+                flippedCards = [];
+            }
+        }
+    </script>
+</body>
+</html>

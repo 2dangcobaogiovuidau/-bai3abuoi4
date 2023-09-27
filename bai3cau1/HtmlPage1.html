@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>In số từ 1 đến n</title>
+</head>
+<body>
+    <h1>In số từ 1 đến n</h1>
+
+    <label for="numberInput">Nhập một số n: </label>
+    <input type="text" id="numberInput" placeholder="Nhập số n">
+    <button id="printButton">In số</button>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("printButton").addEventListener("click", function() {
+            // Lấy giá trị từ ô textbox
+            var n = parseInt(document.getElementById("numberInput").value);
+
+            // Kiểm tra nếu n là một số hợp lệ
+            if (!isNaN(n)) {
+                // Xóa nội dung trước đó trong phần kết quả
+                document.getElementById("output").innerHTML = "";
+
+                // In các số từ 1 đến n
+                for (var i = 1; i <= n; i++) {
+                    document.getElementById("output").innerHTML += i + " ";
+                }
+            } else {
+                alert("Vui lòng nhập một số hợp lệ.");
+            }
+        });
+    </script>
+</body>
+</html>

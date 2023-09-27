@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+    <h1>Giải phương trình bậc 2</h1>
+
+    <label for="a">Nhập a:</label>
+    <input type="text" id="a" placeholder="Nhập a"><br><br>
+
+    <label for="b">Nhập b:</label>
+    <input type="text" id="b" placeholder="Nhập b"><br><br>
+
+    <label for="c">Nhập c:</label>
+    <input type="text" id="c" placeholder="Nhập c"><br><br>
+
+    <input type="button" id="giaiButton" value="Giải phương trình">
+
+    <div id="ketQua"></div>
+
+    <script>
+        document.getElementById("giaiButton").addEventListener("click", function() {
+            // Lấy giá trị của a, b, và c từ các ô input
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+
+            // Kiểm tra a phải khác 0 để đảm bảo đây là phương trình bậc 2
+            if (a === 0) {
+                document.getElementById("ketQua").innerHTML = "a phải khác 0 để đây là phương trình bậc 2.";
+                return;
+            }
+
+            // Tính delta
+            var delta = b * b - 4 * a * c;
+
+            // Tính nghiệm
+            if (delta < 0) {
+                document.getElementById("ketQua").innerHTML = "Phương trình không có nghiệm thực.";
+            } else if (delta === 0) {
+                var x = -b / (2 * a);
+                document.getElementById("ketQua").innerHTML = "Nghiệm kép: x = " + x;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                document.getElementById("ketQua").innerHTML = "Nghiệm 1: x1 = " + x1 + "<br>Nghiệm 2: x2 = " + x2;
+            }
+        });
+    </script>
+</body>
+</html>
